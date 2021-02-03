@@ -4,7 +4,7 @@
 Aplicação para load tests em broker(s) do kafka.
 
 ## O que precisa?
-Python 3.x (também pode utilizar a pasta `venv` deste projeto)
+Python 3.x.
 
 ## Como usar
 Utilize o arquivo `.env` para configurar os testes. As vars desse projeto contém as seguintes características:
