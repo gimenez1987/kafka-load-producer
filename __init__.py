@@ -15,10 +15,10 @@ class KafkaMock:
             for line in open("payload.txt", "r"):
                 header = self.get_default_headers()
                 body = self.include_body_attribute_on_payload(line)
-                print("[headers]: " + str(header))
-                print("[body]: " + str(body))
                 producer.send(TOPIC, value=body,
                               headers=header)
+                print("[headers]: " + str(header))
+                print("[body]: " + str(json.dumps(body, indent=4, sort_keys=True)))
                 sleep(float(INTERVAL))
             print("")
 
@@ -30,7 +30,6 @@ class KafkaMock:
 
     @staticmethod
     def get_default_headers():
-        s_uuid = str(uuid.uuid4())
         return [
             ('contentType', b'application/json'),
             ('correlationId', str(uuid.uuid4()).encode())
