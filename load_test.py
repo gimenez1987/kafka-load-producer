@@ -19,7 +19,7 @@ class KafkaMock:
                               headers=header)
                 print("[headers]: " + str(header))
                 print("[body]: " + str(json.dumps(body, indent=4, sort_keys=True)))
-                sleep(float(INTERVAL))
+            sleep(float(INTERVAL))
             print("")
 
     @staticmethod

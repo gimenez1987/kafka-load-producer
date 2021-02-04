@@ -1,1 +1,3 @@
 { "channel":"PUSH", "action":"CREATE", "template":"following", "receiver":"112803", "receiverType":"SELLER", "receiverName":"Dexter"}
+{ "channel":"SMS", "action":"CREATE", "template":"following", "receiver":"112803", "receiverType":"SELLER", "receiverName":"Dexter"}
+{ "channel":"WHATSAPP", "action":"CREATE", "template":"following", "receiver":"112803", "receiverType":"SELLER", "receiverName":"Dexter"}
