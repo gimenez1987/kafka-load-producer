@@ -11,16 +11,15 @@ class KafkaMock:
                                  , value_serializer=lambda x: json.dumps(x).encode(DEFAULT_ENCODING))
         i = 0
         for i in range(int(NUMBER_OF_REQUESTS)):
-            print("Enviando requisição " + str(i + 1) + " de " + NUMBER_OF_REQUESTS)
             for line in open("payload.txt", "r"):
                 header = self.get_default_headers()
                 body = self.include_body_attribute_on_payload(line)
                 producer.send(TOPIC, value=body,
                               headers=header)
-                print("[headers]: " + str(header))
-                print("[body]: " + str(json.dumps(body, indent=4, sort_keys=True)))
+                print("[headers]: " + str(header), flush=True)
+                print("Enviando requisição " + str(i + 1) + " de " + NUMBER_OF_REQUESTS)
             sleep(float(INTERVAL))
-            print("")
+            print("Fim!")
 
     @staticmethod
     def include_body_attribute_on_payload(payload):
