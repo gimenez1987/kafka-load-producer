@@ -1,5 +1,6 @@
 from kafka import KafkaConsumer
 import os
+import sys
 
 class TopicDrainner:
     def start_drain(self):
@@ -10,9 +11,7 @@ class TopicDrainner:
         print("Conectado com sucesso! Aguardando mensagens...")
         for message in consumer:
             counter += 1
-            print ("%s:%d:%d: key=%s" % (message.topic, message.partition,
-                                                  message.offset, message.key))
-            print("Total de %d mensagens drenadas!" % (counter))
+            print("Total de %d mensagens drenadas!" % (counter), end="\r", flush=True)
 
 if __name__ == '__main__':
     NUMBER_OF_REQUESTS = os.getenv("NUMBER_OF_REQUESTS")
